@@ -1,0 +1,37 @@
+.venv/
+.cache/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+_TRANSFER_EXPORTS/
+artifacts/
+local-data/
+.env
+.env.*
+!.env.example
+*.log
+
+packaging/*.spec
+
+# Local recovery material and generated end-user releases
+_LOCAL_ARCHIVE/
+.venv-before-move*/
+release-assets/
+
+# Local review annotations may contain private notes and measurement references.
+*.bnkg-review.json
+.bnkg-review-*
+
+# Optional locally installed media tools; obtain separately after migration.
+/external-tools/
+
+# Private audio capture directories, wherever selected inside the workspace.
+BnKG-Audio-*/
+
+# User-provided private ENP/NP projects and comparison measurements.
+/exports/
+BnKG-Media-*/
