@@ -1,5 +1,7 @@
 # Preview screenshots
 
+Historical September 2026 development captures; the current interface has later changes. [Browse the Wiki thumbnail gallery](https://github.com/GGadash/BnKG/wiki/Screenshots).
+
 Ten native PNG captures from B&KG 0.4.0a1. Live views use a paused HBK 2255 on firmware 1.3.0.478. Current levels may update while measurement totals remain paused. Demo images are synthetic. These images are illustrative, not calibration or regulatory evidence. Device ID/address labels were hidden in the capture UI; no readings were replaced.
 
 Identify and single Up/Down actions were explicitly authorized and sent through the safety layer, with state read-back and no retries after an uncertain write. One pre-action identity GET timed out; no action was sent in that failed attempt. A subsequent read-only check restored reachability. Measurement state remained Paused throughout successful navigation. No Start/Pause/Stop, menu, calibration or metadata write was used.

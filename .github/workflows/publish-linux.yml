@@ -1,0 +1,38 @@
+name: Attach verified Linux package to draft release
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Successful Linux build run for the release commit
+        required: true
+      tag:
+        description: Existing tag with a draft release
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  attach:
+    runs-on: ubuntu-22.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      BUILD_RUN: ${{ inputs.run_id }}
+      RELEASE_TAG: ${{ inputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validate source and draft release
+        run: |
+          set -euo pipefail
+          test "$(gh run view "$BUILD_RUN" --json conclusion --jq .conclusion)" = success
+          test "$(gh run view "$BUILD_RUN" --json headSha --jq .headSha)" = "$(git rev-list -n 1 "$RELEASE_TAG")"
+          test "$(gh release view "$RELEASE_TAG" --json isDraft --jq .isDraft)" = true
+      - name: Download verified artifact and attach
+        run: |
+          set -euo pipefail
+          gh run download "$BUILD_RUN" -n linux-portable -D package
+          cd package
+          sha256sum -c *.sha256
+          gh release upload "$RELEASE_TAG" -- *.tar.gz *.sha256

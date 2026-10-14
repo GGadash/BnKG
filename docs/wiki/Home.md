@@ -13,3 +13,11 @@ Start with [Which release?](Which-release), [Getting started](Getting-started), 
 More developed or different editions may be available on [GGadash](https://github.com/GGadash/), including [HBKG](https://github.com/GGadash/HBKG). Explore these projects and contribute improvements through GitHub.
 
 Optional support: [Support the developer](https://ko-fi.com/gadash) · [B&KG / HBKG product](https://ko-fi.com/s/06caf1c2f0).
+
+## Preview screenshots
+
+Historical development previews, captured in September 2026. The current interface includes later improvements and the first-use agreement. Click a thumbnail to open the full PNG. Instrument images are illustrative; Demo Lab data is synthetic. These images are not measurement or calibration evidence.
+
+<a href="https://raw.githubusercontent.com/GGadash/BnKG/main/docs/screenshots/01-dashboard-dark.png"><img src="https://raw.githubusercontent.com/GGadash/BnKG/main/docs/screenshots/01-dashboard-dark.png" alt="Dashboard: dark theme" width="240"></a> <a href="https://raw.githubusercontent.com/GGadash/BnKG/main/docs/screenshots/02-slm-levels-dark.png"><img src="https://raw.githubusercontent.com/GGadash/BnKG/main/docs/screenshots/02-slm-levels-dark.png" alt="SLM Screen: levels" width="240"></a> <a href="https://raw.githubusercontent.com/GGadash/BnKG/main/docs/screenshots/03-frequency-current-dark.png"><img src="https://raw.githubusercontent.com/GGadash/BnKG/main/docs/screenshots/03-frequency-current-dark.png" alt="Frequency: current spectrum" width="240"></a>
+
+[Open all ten screenshot previews](Screenshots): Dashboard, SLM Screen, Frequency, Demo Lab, themes and About.

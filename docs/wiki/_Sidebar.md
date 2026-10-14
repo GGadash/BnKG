@@ -4,3 +4,5 @@
 - [Getting started](Getting-started)
 - [Connection and safety](Connection-and-safety)
 - [Build and contribute](Build-and-contribute)
+
+- [Screenshot gallery](Screenshots)

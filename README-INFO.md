@@ -21,3 +21,5 @@ Use [BnKG on GitHub](https://github.com/GGadash/BnKG) to get source, report issu
 Optional support: [developer Ko-fi](https://ko-fi.com/gadash) · [B&KG / HBKG product](https://ko-fi.com/s/06caf1c2f0).
 
 This software uses FFmpeg playback libraries under LGPL-2.1-or-later. Corresponding source archives are supplied alongside binaries on the [release page](https://github.com/GGadash/BnKG/releases). Optional external FFmpeg encoder executables are downloaded separately; see [setup](docs/FFMPEG_SETUP.md).
+
+[Wiki screenshot gallery with clickable thumbnails](https://github.com/GGadash/BnKG/wiki/Screenshots) · [Original PNG previews](https://github.com/GGadash/BnKG/tree/main/docs/screenshots).

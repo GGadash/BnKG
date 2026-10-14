@@ -69,3 +69,5 @@ Optional screen MP4: see [FFmpeg setup](docs/FFMPEG_SETUP.md) for downloads, ins
 Instrument audio is available in the source app: [FLAC capture, confirmations and limits](docs/AUDIO_CAPTURE.md). See the release notes for package validation and remaining acceptance gaps.
 
 This software uses FFmpeg playback libraries under LGPL-2.1-or-later; their corresponding source is available with the [release downloads](https://github.com/GGadash/BnKG/releases). See [credits](CREDITS.md) and [source/build details](docs/DEPENDENCY_SOURCES.md).
+
+[Wiki screenshot gallery with clickable thumbnails](https://github.com/GGadash/BnKG/wiki/Screenshots) · [Original PNG previews](https://github.com/GGadash/BnKG/tree/main/docs/screenshots).

@@ -17,3 +17,5 @@ B&KG is under development. Verify readings and settings on the instrument. Start
 Historical development notes, private hardware evidence, supplied reference screenshots and account-transfer snapshots are local maintainer material, excluded from public packages. See [folder structure](../CONTENT_STRUCTURE.md).
 
 Find more developed/different editions on [GGadash](https://github.com/GGadash/), including [HBKG](https://github.com/GGadash/HBKG). [Wiki](https://github.com/GGadash/BnKG/wiki) · [Discussions](https://github.com/GGadash/BnKG/discussions).
+
+[Wiki screenshot gallery with clickable thumbnails](https://github.com/GGadash/BnKG/wiki/Screenshots) · [Original PNG previews](https://github.com/GGadash/BnKG/tree/main/docs/screenshots).
