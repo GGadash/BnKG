@@ -186,7 +186,7 @@ class MainWindow(QMainWindow):
             ]
         )
         side.addWidget(self.navigation)
-        for note in (f"{__version__} Â· Development alpha", "Local storage Â· No telemetry"):
+        for note in (f"{__version__} · Development alpha", "Local storage · No telemetry"):
             label = QLabel(note)
             label.setWordWrap(True)
             side.addWidget(label)
@@ -226,7 +226,7 @@ class MainWindow(QMainWindow):
             lambda _: self.apply_theme(self.theme.currentText())
         )
         appearance.addWidget(self.color_theme)
-        self.preferences_button = QPushButton("Displayâ€¦")
+        self.preferences_button = QPushButton("Display…")
         self.preferences_button.setAccessibleName("Display preferences")
         self.preferences_button.setToolTip("Display preferences")
         self.preferences_button.clicked.connect(self.open_preferences)
@@ -236,7 +236,7 @@ class MainWindow(QMainWindow):
         main.addLayout(header)
         main.addWidget(construction_banner())
         self.origin_banner = QLabel(
-            "NOT CONNECTED  Â·  Enter or find the instrument address in Connection"
+            "NOT CONNECTED  ·  Enter or find the instrument address in Connection"
         )
         self.origin_banner.setObjectName("banner")
         self.origin_banner.setWordWrap(True)
@@ -281,7 +281,7 @@ class MainWindow(QMainWindow):
         for i, widget in enumerate(self.local_widgets):
             controls.addWidget(widget, i // 3, i % 3)
         # Local controls belong to Data table, away from the main live header.
-        self.local_status = QLabel("LIVE VIEW ONLY Â· Local capture off Â· No log file open")
+        self.local_status = QLabel("LIVE VIEW ONLY · Local capture off · No log file open")
         self.local_status.setWordWrap(True)
         self.local_status.setObjectName("muted")
         # Status accompanies local controls in Data table.
@@ -339,7 +339,7 @@ class MainWindow(QMainWindow):
         content = QWidget()
         layout = QVBoxLayout(content)
         layout.setContentsMargins(0, 0, 4, 0)
-        self.dashboard_status = QLabel("SLM Â· no fresh sample")
+        self.dashboard_status = QLabel("SLM · no fresh sample")
         self.dashboard_status.setWordWrap(True)
         layout.addWidget(self.dashboard_status)
         self.level_bar = LevelBar()
@@ -350,7 +350,7 @@ class MainWindow(QMainWindow):
             self.tiles[parameter.id] = ParameterTile(
                 parameter.label, parameter.description, bool(parameter.formula)
             )
-        layout.addWidget(QLabel("SLM OUTPUTS Â· Each tile identifies its measurement scope"))
+        layout.addWidget(QLabel("SLM OUTPUTS · Each tile identifies its measurement scope"))
         layout.addLayout(self.metric_grid)
         self.spectrum_preview = SpectrumPreview()
         layout.addWidget(self.spectrum_preview)
@@ -362,10 +362,10 @@ class MainWindow(QMainWindow):
         self.metadata_summary = QLabel("Select fields in Metadata to show them here.")
         self.metadata_summary.setWordWrap(True)
         layout.addWidget(self.metadata_summary)
-        self.local_calculations = QLabel("Local calculation Â· LCeq âˆ’ LAeq: unavailable")
+        self.local_calculations = QLabel("Local calculation · LCeq − LAeq: unavailable")
         self.local_calculations.setWordWrap(True)
         layout.addWidget(self.local_calculations)
-        trend_heading = QLabel("LAF / LOCAL CAPTURE Â· bounded recent history")
+        trend_heading = QLabel("LAF / LOCAL CAPTURE · bounded recent history")
         trend_heading.setObjectName("subheading")
         layout.addWidget(trend_heading)
         self.plot = pg.PlotWidget()
@@ -406,7 +406,7 @@ class MainWindow(QMainWindow):
             self.latest.values.get("LAF")
             if self.latest and self.last_received is not None
             else None,
-            self.settings.value("dashboard_range", "20â€“140 dB") == "20â€“140 dB",
+            self.settings.value("dashboard_range", "20–140 dB") == "20–140 dB",
         )
 
     def update_freshness(self):
@@ -415,7 +415,7 @@ class MainWindow(QMainWindow):
             return
         age = max(0, monotonic() - self.last_received)
         self.dashboard_status.setText(
-            f"SLM Â· {self.latest.state} Â· received {age:.0f} s ago Â· {self.latest.timestamp.astimezone():%H:%M:%S %Z}\n{self.latest.quality}"
+            f"SLM · {self.latest.state} · received {age:.0f} s ago · {self.latest.timestamp.astimezone():%H:%M:%S %Z}\n{self.latest.quality}"
         )
 
     def build_parameters(self) -> QWidget:
@@ -460,7 +460,7 @@ class MainWindow(QMainWindow):
         self.table.setHorizontalHeaderLabels(
             ["PC time (UTC)", "Elapsed s", "LAF dB", "LAeq dB", "State", "Origin"]
             + [
-                p.label + (" Â· Calculated" if p.formula else "") + " dB"
+                p.label + (" · Calculated" if p.formula else "") + " dB"
                 for p in self.extra_columns
             ]
         )
@@ -493,7 +493,7 @@ class MainWindow(QMainWindow):
         self.auto_scroll = QCheckBox("Auto-scroll")
         self.auto_scroll.setChecked(True)
         view_controls.addWidget(self.auto_scroll)
-        columns_button = QPushButton("Columnsâ€¦")
+        columns_button = QPushButton("Columns…")
         menu = QMenu(columns_button)
         defaults = [str(i) for i in range(6)]
         visible = self.settings.value("capture_columns", defaults)
@@ -550,14 +550,14 @@ class MainWindow(QMainWindow):
         self.session_info.setTextFormat(Qt.TextFormat.PlainText)
         self.session_info.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
         layout.addWidget(self.session_info)
-        open_button = self.export_open_button = QPushButton("Open existing session for exportâ€¦")
+        open_button = self.export_open_button = QPushButton("Open existing session for export…")
         open_button.clicked.connect(self.open_session)
         layout.addWidget(open_button)
         self.format_box = QComboBox()
         self.format_box.addItems(["CSV", "XLSX", "TSV", "TXT", "JSON", "NDJSON", "HTML"])
         layout.addWidget(self.format_box)
         parameter_button = self.export_parameter_button = QPushButton(
-            "Choose exported parametersâ€¦"
+            "Choose exported parameters…"
         )
         parameter_button.clicked.connect(self.choose_export_parameters)
         layout.addWidget(parameter_button)
@@ -600,7 +600,7 @@ class MainWindow(QMainWindow):
         self.cancel_export_button.setEnabled(False)
         self.cancel_export_button.clicked.connect(self.cancel_export)
         layout.addWidget(self.cancel_export_button)
-        self.export_button = QPushButton("Export selected sessionâ€¦")
+        self.export_button = QPushButton("Export selected session…")
         self.export_button.clicked.connect(self.export_current)
         layout.addWidget(self.export_button)
         note = QLabel(
@@ -652,7 +652,7 @@ class MainWindow(QMainWindow):
                     job.options["include_spectra"],
                     job.options["include_raw"],
                 )
-                heading = f"RUNNING EXPORT Â· Options captured at start\nSource: {job.database}\nDestination: {job.target}\n\n"
+                heading = f"RUNNING EXPORT · Options captured at start\nSource: {job.database}\nDestination: {job.target}\n\n"
             else:
                 value = self.current_export_profile()
                 heading = (
@@ -699,7 +699,7 @@ class MainWindow(QMainWindow):
         choices = QVBoxLayout(content)
         checks = []
         for parameter in PARAMETERS:
-            check = QCheckBox(parameter.label + (" Â· Calculated" if parameter.formula else ""))
+            check = QCheckBox(parameter.label + (" · Calculated" if parameter.formula else ""))
             check.setToolTip(parameter.description)
             check.setChecked(parameter.id in self.export_parameters)
             choices.addWidget(check)
@@ -757,16 +757,16 @@ class MainWindow(QMainWindow):
         self.slm_identify.setEnabled(False)
         self.slm_identify.clicked.connect(self.identify_slm_display)
         layout.addWidget(self.slm_identify)
-        save_png = QPushButton("Save original SLM PNGâ€¦")
+        save_png = QPushButton("Save original SLM PNG…")
         save_png.clicked.connect(self.save_slm_png)
         layout.addWidget(save_png)
-        processed = QPushButton("Save processed display PNGâ€¦")
+        processed = QPushButton("Save processed display PNG…")
         processed.setToolTip(
             "Re-encoded at the selected display scale; no status overlay. Original saving above preserves received bytes."
         )
         processed.clicked.connect(self.save_processed_slm_png)
         layout.addWidget(processed)
-        self.screen_context = QCheckBox("Measurement view â€” enable screen keys")
+        self.screen_context = QCheckBox("Measurement view — enable screen keys")
         self.screen_context.setEnabled(False)
         self.screen_context.toggled.connect(self.confirm_screen_context)
         layout.addWidget(self.screen_context)
@@ -814,9 +814,9 @@ class MainWindow(QMainWindow):
         layout.addWidget(safety)
         self.blocked_operations = []
         for label in (
-            "Reset / factory defaults â€” blocked",
-            "Calibration / service â€” blocked",
-            "Erase / format storage â€” blocked",
+            "Reset / factory defaults — blocked",
+            "Calibration / service — blocked",
+            "Erase / format storage — blocked",
         ):
             blocked = QPushButton(label)
             blocked.setEnabled(False)
@@ -863,7 +863,7 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.address)
         recent_row = QHBoxLayout()
         self.recent = QComboBox()
-        self.recent.addItem("Recent connectionsâ€¦", "")
+        self.recent.addItem("Recent connections…", "")
         for address in self.settings.value("recent_addresses", []):
             self.recent.addItem(address, address)
         self.recent.activated.connect(
@@ -986,7 +986,7 @@ class MainWindow(QMainWindow):
         row = self.found_devices.rowCount()
         self.found_devices.insertRow(row)
         for column, text in enumerate(
-            (result.address, result.name, result.method + " Â· " + result.status)
+            (result.address, result.name, result.method + " · " + result.status)
         ):
             self.found_devices.setItem(row, column, QTableWidgetItem(text))
 
@@ -1022,14 +1022,14 @@ class MainWindow(QMainWindow):
         ]
         self.settings.setValue("recent_addresses", recents[:10])
         self.recent.clear()
-        self.recent.addItem("Recent connectionsâ€¦", "")
+        self.recent.addItem("Recent connections…", "")
         for item in recents[:10]:
             self.recent.addItem(item, item)
         version = identity.get("Version", {})
         firmware = version.get("Firmware", "unknown") if isinstance(version, dict) else "unknown"
         self.address.setText(address)
         self.device_info.setText(
-            f"Connected: {identity.get('HostName', 'SLM')} Â· {address} Â· firmware {firmware}"
+            f"Connected: {identity.get('HostName', 'SLM')} · {address} · firmware {firmware}"
         )
         self.arm_controls.setEnabled(True)
 
@@ -1050,7 +1050,7 @@ class MainWindow(QMainWindow):
         self.update_screen_keys()
         if self.source_mode == "instrument":
             self.origin_banner.setText(
-                "INSTRUMENT Â· " + ("SLM controls ARMED" if armed else "SLM controls disarmed")
+                "INSTRUMENT · " + ("SLM controls ARMED" if armed else "SLM controls disarmed")
             )
 
     def receive_keypad_state(self, ready):
@@ -1183,7 +1183,7 @@ class MainWindow(QMainWindow):
 
     def update_local_status(self):
         self.local_status.setText(
-            f"LOCAL CAPTURE {'ON' if self.capturing else 'OFF'} Â· FILE LOGGING {'ON' if self.logging else 'OFF'} Â· newest {self.record_limit.value()} records shown"
+            f"LOCAL CAPTURE {'ON' if self.capturing else 'OFF'} · FILE LOGGING {'ON' if self.logging else 'OFF'} · newest {self.record_limit.value()} records shown"
         )
 
     def set_record_limit(self, limit):
@@ -1221,20 +1221,20 @@ class MainWindow(QMainWindow):
         self.spectrum_preview.update_frame(self.frequency_page.live_frame)
         self.level_bar.update_level(
             sample.values.get("LAF"),
-            self.settings.value("dashboard_range", "20â€“140 dB") == "20â€“140 dB",
+            self.settings.value("dashboard_range", "20–140 dB") == "20–140 dB",
         )
         self.metadata_page.update_fields(sample.metadata)
         self.metadata_page.location.update_sample(sample)
         a, c = sample.values.get("LAeq"), sample.values.get("LCeq")
         self.local_calculations.setText(
-            "Local calculation (polled inputs; not an SLM output) Â· LCeq âˆ’ LAeq: "
+            "Local calculation (polled inputs; not an SLM output) · LCeq − LAeq: "
             + (f"{c - a:.1f} dB" if a is not None and c is not None else "unavailable")
         )
         for key, tile in self.tiles.items():
             value = sample.values.get(key)
             tile.value.setText("N/A" if value is None else f"{value:.1f}")
         self.footer.setText(
-            f"{sample.timestamp.astimezone():%H:%M:%S %Z}  Â·  {sample.state}  Â·  {sample.origin}  Â·  {sample.quality}"
+            f"{sample.timestamp.astimezone():%H:%M:%S %Z}  ·  {sample.state}  ·  {sample.origin}  ·  {sample.quality}"
         )
 
     def receive_captured(self, sample):
@@ -1271,7 +1271,7 @@ class MainWindow(QMainWindow):
 
     def receive_status(self, mode: str, detail: str) -> None:
         self.connection_diagnostics.set_mode(mode)
-        self.device_info.setText(mode.upper() + " Â· " + detail)
+        self.device_info.setText(mode.upper() + " · " + detail)
         if mode != "stale":
             self.recording_panel.set_connected(mode == "instrument")
         else:
@@ -1290,13 +1290,13 @@ class MainWindow(QMainWindow):
         previous_mode = self.source_mode
         self.source_mode = mode
         prefixes = {
-            "simulation": "DEMO â€” SYNTHETIC DATA",
+            "simulation": "DEMO — SYNTHETIC DATA",
             "instrument": "INSTRUMENT",
             "stale": "STALE DATA",
             "connecting": "CONNECTING",
             "disconnected": "NOT CONNECTED",
         }
-        self.origin_banner.setText(prefixes.get(mode, mode) + "  Â·  " + detail)
+        self.origin_banner.setText(prefixes.get(mode, mode) + "  ·  " + detail)
         self.pause_button.setEnabled(mode == "simulation")
         self.pause_button.setText("Resume demo" if "paused" in detail else "Pause demo")
         self.demo_button.setText("Stop demo" if mode == "simulation" else "Start demo")
@@ -1315,16 +1315,16 @@ class MainWindow(QMainWindow):
         if mode in {"disconnected", "connecting", "stale"}:
             self.latest = None
             for tile in self.tiles.values():
-                tile.value.setText("â€”")
+                tile.value.setText("—")
             self.last_received = None
-            self.dashboard_status.setText("SLM Â· " + mode + " Â· no fresh sample")
+            self.dashboard_status.setText("SLM · " + mode + " · no fresh sample")
             self.level_bar.update_level(None)
             self.frequency_page.update_spectra({})
             self.spectrum_preview.update_frame(self.frequency_page.live_frame)
             self.metadata_page.update_fields({})
             self.metadata_page.location.clear_instrument()
             self.local_calculations.setText(
-                "Local calculation Â· unavailable (no fresh instrument data)"
+                "Local calculation · unavailable (no fresh instrument data)"
             )
 
     def toggle_logging(self) -> None:
@@ -1350,7 +1350,7 @@ class MainWindow(QMainWindow):
     def receive_session(self, path: str, active: bool, count: int) -> None:
         self.session_path, self.logging = path, active
         self.log_button.setText("Stop file logging" if active else "Start file logging")
-        self.session_info.setText(f"{'Logging' if active else 'Saved'} Â· {count} samples\n{path}")
+        self.session_info.setText(f"{'Logging' if active else 'Saved'} · {count} samples\n{path}")
         self.update_local_status()
         self.refresh_export_preview()
 
@@ -1412,13 +1412,13 @@ class MainWindow(QMainWindow):
         self.export_job.finished.connect(self.export_idle)
         self.export_button.setEnabled(False)
         self.cancel_export_button.setEnabled(True)
-        self.export_status.setText("Preparing a consistent database snapshotâ€¦")
+        self.export_status.setText("Preparing a consistent database snapshot…")
         self.export_job.start()
 
     def cancel_export(self):
         if self.export_job:
             self.export_job.requestInterruption()
-            self.export_status.setText("Cancelling export; waiting for safe cleanupâ€¦")
+            self.export_status.setText("Cancelling export; waiting for safe cleanup…")
 
     def export_progress_changed(self, done, total, phase):
         self.export_progress.setRange(0, max(1, total))
@@ -1426,7 +1426,7 @@ class MainWindow(QMainWindow):
         self.export_status.setText(f"{phase}: {done:,} / {total:,}")
 
     def export_finished(self, path: str, count: int) -> None:
-        self.export_status.setText(f"Export complete: {count} rows â†’ {path}")
+        self.export_status.setText(f"Export complete: {count} rows → {path}")
         self.footer.setText(self.export_status.text())
 
     def export_idle(self):
@@ -1455,7 +1455,7 @@ class MainWindow(QMainWindow):
                 self.show_error(str(exc))
 
     def show_recording_status(self, text):
-        self.recording_notice.setText("SCREEN RECORDING Â· " + text)
+        self.recording_notice.setText("SCREEN RECORDING · " + text)
         self.recording_notice.setVisible(self.recording_panel.job is not None)
 
     def save_processed_slm_png(self):
@@ -1471,7 +1471,7 @@ class MainWindow(QMainWindow):
                 self.footer.setText(
                     "Processed display PNG saved: "
                     + path
-                    + " Â· Check display freshness; original saving is separate."
+                    + " · Check display freshness; original saving is separate."
                 )
             except (OSError, ValueError) as exc:
                 self.show_error(str(exc))
@@ -1631,7 +1631,7 @@ class MainWindow(QMainWindow):
             self.settings.sync()
             self.centralWidget().setEnabled(False)
             self.footer.setText(
-                "Closing session and waiting for the current operation to finishâ€¦"
+                "Closing session and waiting for the current operation to finish…"
             )
             if self.discovery:
                 self.discovery.cancel.set()

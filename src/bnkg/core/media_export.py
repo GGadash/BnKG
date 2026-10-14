@@ -49,7 +49,7 @@ def sync_plan(audio_folder, video_folder, correction_ms=0):
             raise ValueError("Recordings must come from the same paired capture session")
     correction = float(correction_ms) / 1000
     if not math.isfinite(correction) or abs(correction) > 30:
-        raise ValueError("Manual correction must be within Â±30 seconds")
+        raise ValueError("Manual correction must be within ±30 seconds")
     audio_start = audio["audio"].get("first_pc_monotonic")
     if audio_start is None:
         audio_start = first_receipt(audio_folder, "messages.jsonl", "pc_monotonic")
