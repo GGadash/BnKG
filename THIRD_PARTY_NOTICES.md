@@ -49,3 +49,7 @@ Stage 9 (2026-10-01) uses existing Python JSON/dataclasses and Qt settings/widge
 ## Release source archives
 
 This software uses FFmpeg playback libraries under LGPL-2.1-or-later. Corresponding sources for FFmpeg, Qt/PySide and zeroconf are supplied alongside the [binary release](https://github.com/GGadash/BnKG/releases), with build scripts, source URLs and hashes. See [source and replacement instructions](docs/DEPENDENCY_SOURCES.md). Python Portable contains the MIT application source and build scripts. Optional Gyan encoder executables are not redistributed.
+
+## Python runtime dependencies
+
+The Windows build contains OpenSSL 3.5.8 (Apache-2.0), libffi (MIT), SQLite 3.53.1 (public domain) and Microsoft runtime libraries. Complete OpenSSL, libffi and Python Windows runtime notices, including Microsoft redistribution restrictions, are retained in `packaging/licenses/` and packaged `third-party-licenses/standard-licences/`. The Microsoft libraries are for use on Windows only. Linux uses its collected Python runtime and host system libraries; library versions can differ by platform. Sources: [OpenSSL](https://github.com/openssl/openssl/tree/openssl-3.5.8), [libffi](https://github.com/libffi/libffi), [SQLite](https://sqlite.org/copyright.html), and [CPython licensing](https://docs.python.org/3.12/license.html).
