@@ -9,6 +9,7 @@ from PySide6.QtCore import QTimer
 from PySide6.QtWidgets import QApplication
 
 from bnkg import __version__
+from bnkg.ui.agreement import application_data_dir, ensure_agreement
 from bnkg.ui.window import MainWindow
 
 
@@ -54,7 +55,13 @@ def main() -> int:
     app.setApplicationName("BnKG")
     app.setApplicationVersion(__version__)
     app.setStyle("Fusion")
-    window = MainWindow(data_dir=args.data_dir, demo=args.demo or args.smoke_test)
+    data_dir = application_data_dir(args.data_dir)
+    # Automated disconnected smoke mode never records consent or connects to hardware.
+    if args.smoke_test and args.data_dir is None:
+        parser.error("--smoke-test requires an isolated --data-dir")
+    if not args.smoke_test and not ensure_agreement(data_dir):
+        return 0
+    window = MainWindow(data_dir=data_dir, demo=args.demo or args.smoke_test)
     window.show()
     if args.smoke_test:
 

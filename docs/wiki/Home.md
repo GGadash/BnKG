@@ -1,5 +1,7 @@
 # B&KG Wiki
 
+**Use at your own risk.** B&KG is under development; information may be incomplete or incorrect. To the extent permitted by applicable law, the developer and distributors are not responsible for data loss, lost measurements or changes to SLM settings arising from use. Read and understand the instructions, check each action and the selected instrument, back up important data, and verify results/settings on the SLM. You may contact B&K/HBK about using third-party apps with your instrument; this does not imply their approval or support.
+
 B&KG / BnKG is an independent SLM desktop studio by Gadash for compatible HBK 2255 and B&K 2245 instruments.
 
 **Under development:** information may be incomplete, delayed or incorrect. Double-check readings and settings on the instrument. No manufacturer endorsement or measurement/regulatory compliance claim.

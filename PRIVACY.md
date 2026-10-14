@@ -11,3 +11,5 @@ Private transfer archives include project files even when ignored by Git, except
 Explicit discovery uses local mDNS multicast or a user-selected bounded subnet (HTTP checks and Windows ping). Recent successful device addresses are saved locally. Network passwords stay in memory and are not saved; ordinary HTTP transport is unencrypted. Discovery is never automatically triggered by demo or startup.
 
 Reviewed location-text transfers create a local audit in audit/BnKG-Location-Writes.jsonl under the application data directory, independently of measurement logging. It includes slot/name, old/new text (potentially location/operator details), source, instrument address and PC UTC outcome timestamps, never the password. Manual coordinates are not automatically acquired or uploaded; map/network providers are not enabled. Review audit/session files before sharing a private transfer archive.
+
+First-use agreement acceptance is stored locally in `usage-agreement.json` with revision, app version and UTC time. It is not sent to the developer or manufacturer. Each data folder has its own acceptance record.

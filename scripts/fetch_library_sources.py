@@ -17,8 +17,10 @@ VERSION = "6.11.2"
 def fetch(item):
     url, expected = item
     name = url.rsplit("/", 1)[-1]
-    if "codeload.github.com" in url:
+    if "codeload.github.com/qt/" in url:
         name = "qt-build-instructions-6.11.2.tar.gz"
+    if "codeload.github.com/FFmpeg/" in url:
+        name = "FFmpeg-n7.1.5.tar.gz"
     p = OUT / name
     session = requests.Session()
     if "download.qt.io" in url:
@@ -54,6 +56,11 @@ def fetch(item):
                 last = e
         else:
             raise last
+    if (
+        name == "FFmpeg-n7.1.5.tar.gz"
+        and hashlib.sha1(p.read_bytes()).hexdigest() != "2322a4cef2d607c7f0048953662ec5e27c587ae8"
+    ):
+        raise RuntimeError("FFmpeg source differs from Qt provisioning checksum")
     result = {
         "file": name,
         "url": url,
@@ -87,6 +94,7 @@ if __name__ == "__main__":
             None,
         ),
         ("https://ffmpeg.org/releases/ffmpeg-7.1.5.tar.xz", None),
+        ("https://codeload.github.com/FFmpeg/FFmpeg/tar.gz/refs/tags/n7.1.5", None),
         ("https://zlib.net/fossils/zlib-1.3.1.tar.gz", None),
         ("https://codeload.github.com/qt/qt5/tar.gz/refs/tags/v6.11.2", None),
     ]

@@ -4,6 +4,10 @@ B&KG is an independent third-party application for compatible HBK 2255 and B&K 2
 
 This app is under construction. Some information may be incomplete, delayed or displayed incorrectly. Double-check readings, units, timestamps, settings and interpretation on the physical instrument and against its official documentation before relying on them. This convenience tool does not replace manufacturer instructions, calibration, certified measurement methods, professional judgement or applicable requirements. It does not establish measurement validity or regulatory compliance.
 
+**Use at your own risk.** B&KG is under development; information may be incomplete or incorrect. To the extent permitted by applicable law, the developer and distributors are not responsible for data loss, lost measurements or changes to SLM settings arising from use. Read and understand the instructions, check each action and the selected instrument, back up important data, and verify results/settings on the SLM. You may contact B&K/HBK about using third-party apps with your instrument; this does not imply their approval or support.
+
+The app requests explicit agreement before its main window opens on first use of each data folder, and again if the agreement revision changes. Declining closes the app. Acceptance is recorded locally with revision and UTC time, without telemetry; it does not arm instrument controls. The terms remain available in About.
+
 Original application code and artwork are MIT licensed; see LICENSE. The software is provided without warranty. Third-party components retain their own terms; see THIRD_PARTY_NOTICES.md and the packaged licence texts.
 
 Real controls are deliberate, guarded operations. Start/Pause, Stop, Identify and the narrow location-text transfer have different effects; arming is not permission to experiment with unsaved measurements. Calibration, service, unknown writes and generic settings editing are blocked. Screen arrows can change settings when a menu is open, so supervised capture only uses them on an inspected measurement screen. No automatic action retry follows an uncertain response.

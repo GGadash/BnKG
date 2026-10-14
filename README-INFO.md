@@ -1,5 +1,7 @@
 # B&KG: start here
 
+**Use at your own risk.** B&KG is under development; information may be incomplete or incorrect. To the extent permitted by applicable law, the developer and distributors are not responsible for data loss, lost measurements or changes to SLM settings arising from use. Read and understand the instructions, check each action and the selected instrument, back up important data, and verify results/settings on the SLM. You may contact B&K/HBK about using third-party apps with your instrument; this does not imply their approval or support.
+
 **BnKG is an independent sound level meter desktop app by Gadash (Akila DJ), for compatible HBK 2255 and B&K 2245 instruments through Web-XI/Open Interface.** It provides live readings, instrument-screen viewing, frequency analysis, local capture/review/export, media tools and an offline Demo Lab.
 
 **Under development:** information may be incomplete, delayed or incorrect. Double-check readings, units, timing and settings on the instrument. This software is not manufacturer-endorsed, a calibration tool or proof of measurement/regulatory compliance. Windows binaries are unsigned; platform and hardware limitations are described in the release notes.

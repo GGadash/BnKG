@@ -31,6 +31,7 @@ PUBLIC_SCRIPTS = (
     "release_content.py",
     "prepare_public_source.py",
     "fetch_library_sources.py",
+    "package_library_sources.py",
     "verify_portable.py",
     "verify_linux.py",
     "launch_app.py",
@@ -78,6 +79,7 @@ def public_source(destination):
         "src",
         "tests",
         "packaging/licenses",
+        "packaging/hooks",
         "packaging/source-provenance",
         ".github/workflows",
     ):

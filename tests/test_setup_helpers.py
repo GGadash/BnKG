@@ -2,6 +2,8 @@ import importlib.util
 import sys
 from pathlib import Path
 
+import pytest
+
 
 def helper():
     spec = importlib.util.spec_from_file_location(
@@ -19,6 +21,7 @@ def project(root):
         path.write_text("")
 
 
+@pytest.mark.skipif(sys.platform != "win32", reason="Windows setup helper")
 def test_failed_venv_keeps_backup_stops_later_steps(tmp_path, monkeypatch, capsys):
     module = helper()
     project(tmp_path)
@@ -53,6 +56,7 @@ def test_command_error_and_timeout_are_failures(tmp_path):
         setup.run([sys.executable, "-c", "import time; time.sleep(10)"], timeout=0.1)
 
 
+@pytest.mark.skipif(sys.platform != "win32", reason="Windows setup helper")
 def test_missing_project_is_not_mutated(tmp_path, capsys):
     setup = helper().Setup(tmp_path)
     assert setup.perform() == 1

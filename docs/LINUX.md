@@ -8,10 +8,12 @@ Install the desktop runtime libraries (the package needs an X11/XWayland-capable
 
 ```sh
 sudo apt update
-sudo apt install libegl1 libgl1 libopengl0 libxkbcommon-x11-0 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libxcb-xinerama0 libxcb-render-util0 libxcb-image0 libxcb-randr0 libxcb-xfixes0 libpulse0
+sudo apt install libegl1 libgl1 libopengl0 libxkbcommon-x11-0 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libxcb-xinerama0 libxcb-render-util0 libxcb-image0 libxcb-randr0 libxcb-xfixes0 libpulse0 libglib2.0-0 libdbus-1-3 libfontconfig1 libfreetype6 libx11-xcb1 libxrender1 libxi6 libxfixes3 libxext6 libxrandr2 libxcursor1 zlib1g
 ```
 
 Extract the release tar.gz into a writable folder and run `./BnKG/Launch-BnKG-Portable.sh`. It stores data beside the app in `data/`. Directly running `./BnKG/BnKG` uses the app's default per-user data location. Do not run as root. If a Wayland-specific launch fails, try `QT_QPA_PLATFORM=xcb ./BnKG/Launch-BnKG-Portable.sh` in a session with XWayland.
+
+The bundle uses Ubuntu system libraries instead of shipping copies from the build runner. See `system-libraries-not-bundled.json` inside the package. ALSA must also be installed (`libasound2` on Ubuntu 22.04 or `libasound2t64` on Ubuntu 24.04); a normal desktop installation includes it.
 
 ## Python Portable / source
 

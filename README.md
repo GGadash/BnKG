@@ -1,5 +1,7 @@
 # B&KG · BnKG
 
+**Use at your own risk.** B&KG is under development; information may be incomplete or incorrect. To the extent permitted by applicable law, the developer and distributors are not responsible for data loss, lost measurements or changes to SLM settings arising from use. Read and understand the instructions, check each action and the selected instrument, back up important data, and verify results/settings on the SLM. You may contact B&K/HBK about using third-party apps with your instrument; this does not imply their approval or support.
+
 **SLM Remote Desktop Studio for Open API of HBK 2255 & B&K 2245, by Gadash**
 
 Independent Windows and Linux desktop app, built with Python and Qt. **0.4.0a1 is a development alpha.** This app is under construction: some information may be incomplete, delayed or displayed incorrectly. Double-check readings, units and settings on the instrument and against its official documentation.

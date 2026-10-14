@@ -7,3 +7,5 @@ BnKG is **under development**. Information may be incomplete, delayed or incorre
 [Start here](https://github.com/GGadash/BnKG/blob/main/README-INFO.md) · [Help](https://github.com/GGadash/BnKG/blob/main/docs/README.md) · [Downloads](https://github.com/GGadash/BnKG/releases) · [Wiki](https://github.com/GGadash/BnKG/wiki).
 
 More developed or different versions may be available on the [developer page](https://github.com/GGadash/), including [HBKG](https://github.com/GGadash/HBKG). Contributions to these projects are welcome.
+
+Optional support: [Support the developer](https://ko-fi.com/gadash) · [B&KG / HBKG product](https://ko-fi.com/s/06caf1c2f0).
